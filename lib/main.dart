@@ -1,11 +1,14 @@
+ 
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   Flurorouter.configureRoutes();
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
+
 
 class MyApp extends StatelessWidget {
   @override
