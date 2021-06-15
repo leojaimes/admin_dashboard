@@ -54,18 +54,20 @@ class LoginView extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 20),
-                  CustomOutlinedButton(
-                    onPressed: () async {
-                      loginFormController.validateForm();
-                      String email = loginFormController.email;
-                      String password = loginFormController.email;
+                  Consumer(builder: (context, wacth, child) {
+                    return CustomOutlinedButton(
+                      onPressed: () async {
+                        await context
+                            .read(signInNotifierProvider.notifier)
+                            .signIn(loginFormController.email,
+                                loginFormController.password);
+                      },
+                      text: wacth(_loginFormProvider).isValidForm
+                          ? 'Ingresar'
+                          : 'chuchas',
+                    );
+                  }),
 
-                      await context
-                          .read(signInNotifierProvider.notifier)
-                          .signIn(email, password);
-                    },
-                    text: 'Ingresar',
-                  ),
                   Consumer(builder: (context, wacth, child) {
                     final authState = wacth(signInNotifierProvider);
                     return authState.when(
@@ -78,15 +80,6 @@ class LoginView extends StatelessWidget {
                         initial: () => Container(),
                         loading: () => const CircularProgressIndicator(),
                         error: (error) => Container());
-
-                    /*print(authState);
-                    if (authState is AuthInitialState) {
-                      return Text('Init State');
-                    } else if (authState is AuthLoaded) {
-                    } else if (authState is AuthError) {
-                      return Text('tengo error');
-                    }
-                    return Container();*/
                   }),
                   const SizedBox(height: 20),
                   LinkText(
