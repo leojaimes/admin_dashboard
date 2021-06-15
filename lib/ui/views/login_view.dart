@@ -1,5 +1,5 @@
 import 'package:admin_dashboard/auth/logic/auth_provider.dart';
- 
+
 import 'package:admin_dashboard/providers/login_form_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 
@@ -54,7 +54,6 @@ class LoginView extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 20),
-
                   Consumer(builder: (context, wacth, child) {
                     return CustomOutlinedButton(
                         onPressed:
