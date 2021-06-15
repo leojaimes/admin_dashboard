@@ -1,5 +1,5 @@
-import 'package:admin_dashboard/providers/auth_provider.dart';
-import 'package:admin_dashboard/providers/register_form_provider.dart';
+import 'package:admin_dashboard/providers/auth_example_provider.dart';
+import 'package:admin_dashboard/features/register/logic/register_form_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/ui/dialogs/dialogs.dart';
 import 'package:admin_dashboard/ui/validators/validators.dart';

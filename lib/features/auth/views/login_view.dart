@@ -1,6 +1,8 @@
-import 'package:admin_dashboard/auth/logic/auth_provider.dart';
+ 
 
-import 'package:admin_dashboard/providers/login_form_provider.dart';
+ 
+import 'package:admin_dashboard/features/auth/logic/auth_provider.dart';
+import 'package:admin_dashboard/features/auth/logic/login_form_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/ui/validators/validators.dart';
