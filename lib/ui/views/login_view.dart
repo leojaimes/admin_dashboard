@@ -56,12 +56,14 @@ class LoginView extends StatelessWidget {
                   const SizedBox(height: 20),
                   Consumer(builder: (context, wacth, child) {
                     return CustomOutlinedButton(
-                      onPressed: () async {
-                        await context
-                            .read(signInNotifierProvider.notifier)
-                            .signIn(loginFormController.email,
-                                loginFormController.password);
-                      },
+                      onPressed: loginFormController.isValidForm == false
+                          ? null
+                          : () async {
+                              await context
+                                  .read(signInNotifierProvider.notifier)
+                                  .signIn(loginFormController.email,
+                                      loginFormController.password);
+                            },
                       text: wacth(_loginFormProvider).isValidForm
                           ? 'Ingresar'
                           : 'chuchas',
