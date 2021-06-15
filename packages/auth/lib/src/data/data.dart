@@ -9,5 +9,7 @@ export 'datasources/remote/i_remote_data_source.dart';
 
 //model exportado:
 export 'models/auth_response_model.dart';
+export 'models/registering_user_model.dart';
+
 // Export Repositories Implementations
 export 'repositories/auth_repository.dart';

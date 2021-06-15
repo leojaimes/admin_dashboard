@@ -1,4 +1,5 @@
 import 'package:auth/src/domain/entities/auth_response.dart';
+import 'package:auth/src/domain/entities/registering_user.dart';
 
 // ignore: public_member_api_docs
 abstract class IRemoteDataSource {
@@ -8,5 +9,6 @@ abstract class IRemoteDataSource {
   /// [email] 
   ///  [password]
   Future<AuthResponse> signin(String email, String password);
+  Future<AuthResponse> register(RegisteringUser user);
 
 }
