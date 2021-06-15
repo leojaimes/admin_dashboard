@@ -1,5 +1,5 @@
 import 'package:admin_dashboard/auth/logic/auth_provider.dart';
-import 'package:admin_dashboard/providers/auth_provider.dart';
+ 
 import 'package:admin_dashboard/providers/login_form_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 
@@ -54,20 +54,19 @@ class LoginView extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 20),
+
                   Consumer(builder: (context, wacth, child) {
                     return CustomOutlinedButton(
-                      onPressed: loginFormController.isValidForm == false
-                          ? null
-                          : () async {
-                              await context
-                                  .read(signInNotifierProvider.notifier)
-                                  .signIn(loginFormController.email,
-                                      loginFormController.password);
-                            },
-                      text: wacth(_loginFormProvider).isValidForm
-                          ? 'Ingresar'
-                          : 'chuchas',
-                    );
+                        onPressed:
+                            wacth(_loginFormProvider).isValidForm == false
+                                ? null
+                                : () async {
+                                    await context
+                                        .read(signInNotifierProvider.notifier)
+                                        .signIn(loginFormController.email,
+                                            loginFormController.password);
+                                  },
+                        text: 'Ingresar');
                   }),
 
                   Consumer(builder: (context, wacth, child) {
