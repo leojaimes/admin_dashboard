@@ -28,9 +28,26 @@ dependencies:
   flutter_riverpod: ^0.14.0+3
   google_fonts: ^2.1.0
 
+  dio:
+  auth:
+    path: 'packages/auth' 
+    
+    
+  # * scoped packages
+  network_manager:
+    git:
+      url: git://github.com/NoScopeDevs/network_manager
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # * code generation
+  build_runner:  
+  flutter_gen_runner:
+  freezed:  
+
+  # * linter
+  very_good_analysis:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
