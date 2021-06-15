@@ -19,10 +19,10 @@ class LoginView extends StatelessWidget {
     final loginFormController = context.read(_loginFormProvider);
     return Container(
       //margin: EdgeInsets.only(top: 100),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 370),
+          constraints: const BoxConstraints(maxWidth: 370),
           child: Form(
               key: context.read(_loginFormProvider).formKey,
               autovalidateMode: AutovalidateMode.always,
@@ -32,21 +32,21 @@ class LoginView extends StatelessWidget {
                   TextFormField(
                     onChanged: loginFormController.onChangeEmail,
                     validator: Validators.validateEmail,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: CustomInputs.loginInputDecoration(
                         hint: 'Ingrese su correo',
                         label: 'Email',
                         icon: Icons.email_outlined),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // Password
                   TextFormField(
                     onChanged: loginFormController.onChangePassword,
                     validator: Validators.validatePassword,
                     obscureText: true,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: CustomInputs.loginInputDecoration(
                         hint: '*********',
                         label: 'Contraseña',
@@ -67,9 +67,18 @@ class LoginView extends StatelessWidget {
                     text: 'Ingresar',
                   ),
                   Consumer(builder: (context, wacth, child) {
-                    //final authState = wacth(signInNotifierProvider);
-                    return Container();
-                    
+                    final authState = wacth(signInNotifierProvider);
+                    return authState.when(
+                        data: (data) => Center(
+                              child: Text(
+                                data.token,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                        initial: () => Container(),
+                        loading: () => const CircularProgressIndicator(),
+                        error: (error) => Container());
+
                     /*print(authState);
                     if (authState is AuthInitialState) {
                       return Text('Init State');

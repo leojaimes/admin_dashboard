@@ -16,7 +16,7 @@ final signInNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
 /// repositoryProvider
 final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
     AuthRepository(
-        networkManager: NetworkManager(DataConnectionChecker()),
+       
         remoteDataSource:
             DioRemoteDataSource() //a este dio le falta la url y el client
         ));
