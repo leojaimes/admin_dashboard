@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RegisterStateTearOff {
   const _$RegisterStateTearOff();
 
-  _$Data call() {
-    return const _$Data();
+  _$Data data({required AuthData authData}) {
+    return _$Data(
+      authData: authData,
+    );
   }
 
   _$Initial initial() {
@@ -41,16 +43,16 @@ const $RegisterState = _$RegisterStateTearOff();
 /// @nodoc
 mixin _$RegisterState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthData authData) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthData authData)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -58,16 +60,16 @@ mixin _$RegisterState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_$Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$Data value) data,
     required TResult Function(_$Initial value) initial,
     required TResult Function(_$Loading value) loading,
     required TResult Function(_$Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_$Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$Data value)? data,
     TResult Function(_$Initial value)? initial,
     TResult Function(_$Loading value)? loading,
     TResult Function(_$Error value)? error,
@@ -97,6 +99,7 @@ class _$RegisterStateCopyWithImpl<$Res>
 abstract class _$$DataCopyWith<$Res> {
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
+  $Res call({AuthData authData});
 }
 
 /// @nodoc
@@ -107,81 +110,110 @@ class __$$DataCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
 
   @override
   _$Data get _value => super._value as _$Data;
+
+  @override
+  $Res call({
+    Object? authData = freezed,
+  }) {
+    return _then(_$Data(
+      authData: authData == freezed
+          ? _value.authData
+          : authData // ignore: cast_nullable_to_non_nullable
+              as AuthData,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_$Data implements _$Data {
-  const _$_$Data();
+  const _$_$Data({required this.authData});
+
+  @override
+  final AuthData authData;
 
   @override
   String toString() {
-    return 'RegisterState()';
+    return 'RegisterState.data(authData: $authData)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _$Data);
+    return identical(this, other) ||
+        (other is _$Data &&
+            (identical(other.authData, authData) ||
+                const DeepCollectionEquality()
+                    .equals(other.authData, authData)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authData);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$DataCopyWith<_$Data> get copyWith =>
+      __$$DataCopyWithImpl<_$Data>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthData authData) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
-    return $default();
+    return data(authData);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthData authData)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default();
+    if (data != null) {
+      return data(authData);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_$Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$Data value) data,
     required TResult Function(_$Initial value) initial,
     required TResult Function(_$Loading value) loading,
     required TResult Function(_$Error value) error,
   }) {
-    return $default(this);
+    return data(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_$Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$Data value)? data,
     TResult Function(_$Initial value)? initial,
     TResult Function(_$Loading value)? loading,
     TResult Function(_$Error value)? error,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (data != null) {
+      return data(this);
     }
     return orElse();
   }
 }
 
 abstract class _$Data implements RegisterState {
-  const factory _$Data() = _$_$Data;
+  const factory _$Data({required AuthData authData}) = _$_$Data;
+
+  AuthData get authData => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -220,8 +252,8 @@ class _$_$Initial implements _$Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthData authData) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -231,8 +263,8 @@ class _$_$Initial implements _$Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthData authData)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -246,8 +278,8 @@ class _$_$Initial implements _$Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_$Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$Data value) data,
     required TResult Function(_$Initial value) initial,
     required TResult Function(_$Loading value) loading,
     required TResult Function(_$Error value) error,
@@ -257,8 +289,8 @@ class _$_$Initial implements _$Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_$Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$Data value)? data,
     TResult Function(_$Initial value)? initial,
     TResult Function(_$Loading value)? loading,
     TResult Function(_$Error value)? error,
@@ -311,8 +343,8 @@ class _$_$Loading implements _$Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthData authData) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -322,8 +354,8 @@ class _$_$Loading implements _$Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthData authData)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -337,8 +369,8 @@ class _$_$Loading implements _$Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_$Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$Data value) data,
     required TResult Function(_$Initial value) initial,
     required TResult Function(_$Loading value) loading,
     required TResult Function(_$Error value) error,
@@ -348,8 +380,8 @@ class _$_$Loading implements _$Loading {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_$Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$Data value)? data,
     TResult Function(_$Initial value)? initial,
     TResult Function(_$Loading value)? loading,
     TResult Function(_$Error value)? error,
@@ -427,8 +459,8 @@ class _$_$Error implements _$Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthData authData) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -438,8 +470,8 @@ class _$_$Error implements _$Error {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthData authData)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -453,8 +485,8 @@ class _$_$Error implements _$Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_$Data value) $default, {
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$Data value) data,
     required TResult Function(_$Initial value) initial,
     required TResult Function(_$Loading value) loading,
     required TResult Function(_$Error value) error,
@@ -464,8 +496,8 @@ class _$_$Error implements _$Error {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_$Data value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$Data value)? data,
     TResult Function(_$Initial value)? initial,
     TResult Function(_$Loading value)? loading,
     TResult Function(_$Error value)? error,

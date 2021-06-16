@@ -1,5 +1,6 @@
- 
 import 'package:auth/src/domain/entities/registering_user.dart';
+import 'package:auth/src/data/models/registering_user_model.dart';
+
 import 'package:errors/errors.dart';
 
 import 'package:dartz/dartz.dart';
@@ -22,23 +23,22 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<Failure, AuthResponse>> signIn(
       String email, String password) async {
-     
-      try{
-        final authResponse = await _remoteDataSource.signin(email, password);
-        return Right(authResponse);
-      }catch(error){
-        return Left(ServerFailure());
-      }
- 
+    try {
+      final authResponse = await _remoteDataSource.signin(email, password);
+      return Right(authResponse);
+    } catch (error) {
+      return Left(ServerFailure());
+    }
   }
 
   @override
-  Future<Either<Failure, AuthResponse>> register(RegisteringUser user)  async{
-      try{
-        final authResponse = await _remoteDataSource.register(user);
-        return Right(authResponse);
-      }catch(error){
-        return Left(ServerFailure());
-      }
+  Future<Either<Failure, AuthResponse>> register(
+      RegisteringUserModel user) async {
+    try {
+      final authResponse = await _remoteDataSource.register(user);
+      return Right(authResponse);
+    } catch (error) {
+      return Left(ServerFailure());
+    }
   }
 }

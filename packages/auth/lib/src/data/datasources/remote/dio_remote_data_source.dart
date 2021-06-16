@@ -1,10 +1,12 @@
 import 'package:auth/src/data/datasources/remote/i_remote_data_source.dart';
 import 'package:auth/src/data/models/auth_response_model.dart';
-import 'package:auth/src/domain/entities/registering_user.dart';
+import 'package:auth/src/data/models/registering_user_model.dart';
 
 
 ///
 class DioRemoteDataSource implements IRemoteDataSource {
+
+  //falta url
   @override
   Future<AuthResponseModel> signin(String email, String password) async {
     await Future.delayed(const Duration(seconds: 2));
@@ -14,8 +16,10 @@ class DioRemoteDataSource implements IRemoteDataSource {
   }
 
   @override
-  Future<AuthResponseModel> register(RegisteringUser user ) async {
+  Future<AuthResponseModel> register(RegisteringUserModel user ) async {
     await Future.delayed(const Duration(seconds: 2));
+
+    
     return AuthResponseModel.fromJson(
         {'id': 'new id', 'token': 'token de registro'});
     
