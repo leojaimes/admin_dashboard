@@ -1,5 +1,5 @@
 import 'package:auth/src/domain/entities/auth_response.dart';
-import 'package:auth/src/domain/entities/registering_user.dart';
+ 
 import 'package:auth/src/data/models/registering_user_model.dart';
 // ignore: public_member_api_docs
 abstract class IRemoteDataSource {

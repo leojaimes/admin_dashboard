@@ -14,14 +14,8 @@ class DioRemoteDataSource implements IRemoteDataSource {
 
   @override
   Future<AuthResponseModel> register(RegisteringUserModel user) async {
-    print('register funcion dio datasource');
-    print(user.email);
-    print(user.name);
-    print(user.password);
-  
     await Future.delayed(const Duration(seconds: 2));
-
     return AuthResponseModel.fromJson(
-        {'id': 'new id', 'token': 'token de registro'});
+        {'id': 'new id', 'token': 'token de registro para ${user.name}'});
   }
 }

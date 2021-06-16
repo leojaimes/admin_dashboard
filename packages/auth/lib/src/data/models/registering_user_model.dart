@@ -18,11 +18,22 @@ class RegisteringUserModel implements RegisteringUser {
   Map<String, dynamic> toJson() => _$RegisteringUserModelToJson(this);
 
   ///
-  RegisteringUserModel copyWith({
-    String? name,
-    String? email,
-    String? password,
-  }) =>
+
+  RegisteringUserModel copyWith(
+          {
+
+          ///
+          String? name,
+
+          ///
+          String? email,
+
+          ///
+          String? password
+
+          ///
+
+          }) =>
       RegisteringUserModel(
         name: name ?? this.name,
         email: email ?? this.email,

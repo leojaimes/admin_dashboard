@@ -14,6 +14,6 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
     state = const RegisterState.loading();
     final result = await _register(user);
     result.fold((error) => state = RegisterState.error(error.toString()),
-        (data) => RegisterState.data(authResponse: data));
+        (data) => state = RegisterState.data(authResponse: data));
   }
 }
