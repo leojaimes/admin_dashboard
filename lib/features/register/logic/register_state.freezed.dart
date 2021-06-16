@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RegisterStateTearOff {
   const _$RegisterStateTearOff();
 
-  _$Data data({required AuthData authData}) {
+  _$Data data({required AuthResponse authResponse}) {
     return _$Data(
-      authData: authData,
+      authResponse: authResponse,
     );
   }
 
@@ -44,7 +44,7 @@ const $RegisterState = _$RegisterStateTearOff();
 mixin _$RegisterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthData authData) data,
+    required TResult Function(AuthResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -52,7 +52,7 @@ mixin _$RegisterState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthData authData)? data,
+    TResult Function(AuthResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -99,7 +99,7 @@ class _$RegisterStateCopyWithImpl<$Res>
 abstract class _$$DataCopyWith<$Res> {
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
-  $Res call({AuthData authData});
+  $Res call({AuthResponse authResponse});
 }
 
 /// @nodoc
@@ -113,13 +113,13 @@ class __$$DataCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? authData = freezed,
+    Object? authResponse = freezed,
   }) {
     return _then(_$Data(
-      authData: authData == freezed
-          ? _value.authData
-          : authData // ignore: cast_nullable_to_non_nullable
-              as AuthData,
+      authResponse: authResponse == freezed
+          ? _value.authResponse
+          : authResponse // ignore: cast_nullable_to_non_nullable
+              as AuthResponse,
     ));
   }
 }
@@ -127,28 +127,28 @@ class __$$DataCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$Data implements _$Data {
-  const _$_$Data({required this.authData});
+  const _$_$Data({required this.authResponse});
 
   @override
-  final AuthData authData;
+  final AuthResponse authResponse;
 
   @override
   String toString() {
-    return 'RegisterState.data(authData: $authData)';
+    return 'RegisterState.data(authResponse: $authResponse)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$Data &&
-            (identical(other.authData, authData) ||
+            (identical(other.authResponse, authResponse) ||
                 const DeepCollectionEquality()
-                    .equals(other.authData, authData)));
+                    .equals(other.authResponse, authResponse)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authData);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -158,25 +158,25 @@ class _$_$Data implements _$Data {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthData authData) data,
+    required TResult Function(AuthResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
   }) {
-    return data(authData);
+    return data(authResponse);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthData authData)? data,
+    TResult Function(AuthResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(authData);
+      return data(authResponse);
     }
     return orElse();
   }
@@ -209,9 +209,9 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements RegisterState {
-  const factory _$Data({required AuthData authData}) = _$_$Data;
+  const factory _$Data({required AuthResponse authResponse}) = _$_$Data;
 
-  AuthData get authData => throw _privateConstructorUsedError;
+  AuthResponse get authResponse => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }
@@ -253,7 +253,7 @@ class _$_$Initial implements _$Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthData authData) data,
+    required TResult Function(AuthResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -264,7 +264,7 @@ class _$_$Initial implements _$Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthData authData)? data,
+    TResult Function(AuthResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -344,7 +344,7 @@ class _$_$Loading implements _$Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthData authData) data,
+    required TResult Function(AuthResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -355,7 +355,7 @@ class _$_$Loading implements _$Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthData authData)? data,
+    TResult Function(AuthResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -460,7 +460,7 @@ class _$_$Error implements _$Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthData authData) data,
+    required TResult Function(AuthResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -471,7 +471,7 @@ class _$_$Error implements _$Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthData authData)? data,
+    TResult Function(AuthResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,

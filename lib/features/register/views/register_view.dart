@@ -1,7 +1,7 @@
-import 'package:admin_dashboard/providers/auth_example_provider.dart';
 import 'package:admin_dashboard/features/register/logic/register_form_provider.dart';
+import 'package:admin_dashboard/features/register/logic/register_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
-import 'package:admin_dashboard/ui/dialogs/dialogs.dart';
+
 import 'package:admin_dashboard/ui/validators/validators.dart';
 
 import 'package:flutter/material.dart';
@@ -10,18 +10,21 @@ import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+///
 class RegisterView extends StatelessWidget {
+  const RegisterView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final _registerProvider = ChangeNotifierProvider<RegisterFormProvider>(
         (ref) => RegisterFormProvider());
 
     return Container(
-      margin: EdgeInsets.only(top: 100),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.only(top: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 370),
+          constraints: const BoxConstraints(maxWidth: 370),
           child: Form(
               key: context.read(_registerProvider).formKey,
               child: SingleChildScrollView(
@@ -31,27 +34,27 @@ class RegisterView extends StatelessWidget {
                     TextFormField(
                       validator: Validators.validateName,
                       onChanged: context.read(_registerProvider).onChangeName,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: CustomInputs.loginInputDecoration(
                           hint: 'Ingrese su nombre',
                           label: 'Nombre',
                           icon: Icons.supervised_user_circle_sharp),
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     // Email
                     TextFormField(
-                      validator: Validators.validateName,
+                      validator: Validators.validateEmail,
                       onChanged: context.read(_registerProvider).onChangeEmail,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: CustomInputs.loginInputDecoration(
                           hint: 'Ingrese su correo',
                           label: 'Email',
                           icon: Icons.email_outlined),
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     // Password
                     TextFormField(
@@ -59,22 +62,39 @@ class RegisterView extends StatelessWidget {
                       onChanged:
                           context.read(_registerProvider).onChangePassword,
                       obscureText: true,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: CustomInputs.loginInputDecoration(
                           hint: '*********',
                           label: 'Contraseña',
                           icon: Icons.lock_outline_rounded),
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     CustomOutlinedButton(
-                      onPressed: () {
-                       
+                      onPressed: () async {
+                        final user = context.read(_registerProvider).user;
+                        await context
+                            .read(registerNotifierProvider.notifier)
+                            .registerUser(user);
                       },
                       text: 'Crear cuenta',
                     ),
 
-                    SizedBox(height: 20),
+                    Consumer(builder: (context, wacth, child) {
+                      final authState = wacth(registerNotifierProvider);
+                      return authState.when(
+                          data: (data) => Center(
+                                child: Text(
+                                  data.token,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ),
+                          initial: () => Container(),
+                          loading: () => const CircularProgressIndicator(),
+                          error: (error) => Container());
+                    }),
+
+                    const SizedBox(height: 20),
                     LinkText(
                       text: 'Ir al login',
                       onPressed: () {

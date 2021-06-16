@@ -6,7 +6,8 @@ import 'register_state.dart';
 part 'register_state_notifier.dart';
 
 /// Provider to use the RegisterStateNotifier
-final registerNotifierProvider = StateNotifierProvider(
+final registerNotifierProvider =
+    StateNotifierProvider<RegisterNotifier, RegisterState>(
   (ref) => RegisterNotifier(register: ref.watch(_registerProvider)),
 );
 
