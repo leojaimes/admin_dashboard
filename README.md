@@ -13,5 +13,6 @@ Se realiza diseño de la pagina de login cambiand unicamente el formulario de re
  
 
  ## Seccion 8
- Se realiza manejo de estado con riverpod
- flutter run -d chrome
+Se realiza manejo de estado con riverpod
+flutter run -d chrome
+flutter pub add shared_preferences

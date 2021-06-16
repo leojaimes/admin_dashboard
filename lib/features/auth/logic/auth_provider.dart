@@ -9,17 +9,15 @@ part 'auth_state_notifier.dart';
 
 /// Provider to use the AuthStateNotifier
 final signInNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
-  (ref) => AuthNotifier(signIn:  ref.watch(_signinProvider)),
+  (ref) => AuthNotifier(signIn: ref.watch(_signinProvider)),
 );
 
 /// Repositories Providers
 /// repositoryProvider
 final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
     AuthRepository(
-       
-        remoteDataSource:
-            DioRemoteDataSource() //a este dio le falta la url y el client
-        ));
+        remoteDataSource: DioRemoteDataSource(),
+        localDataSource: SharedPreferencesDataSource()));
 
 /// Use Cases Providers
 final _signinProvider = Provider<SignIn>(

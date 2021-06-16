@@ -3,7 +3,9 @@
 
 
 // Export Data Sources
-//export 'datasources/local_data_source.dart';
+ export 'datasources/local/i_local_data_source.dart';
+ export 'datasources/local/shared_preferences_data_source.dart' show SharedPreferencesDataSource;
+
 export 'datasources/remote/dio_remote_data_source.dart';
 export 'datasources/remote/i_remote_data_source.dart';
 

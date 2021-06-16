@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   fluro: ^2.0.3
   flutter_riverpod: ^0.14.0+3
+  shared_preferences: ^2.0.6
   google_fonts: ^2.1.0
 
   dio:

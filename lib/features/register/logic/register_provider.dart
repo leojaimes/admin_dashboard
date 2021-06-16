@@ -11,8 +11,10 @@ final registerNotifierProvider =
   (ref) => RegisterNotifier(register: ref.watch(_registerProvider)),
 );
 
-final _authRepositoryProvider = Provider<IAuthRepository>(
-    (ref) => AuthRepository(remoteDataSource: DioRemoteDataSource()));
+final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
+    AuthRepository(
+        remoteDataSource: DioRemoteDataSource(),
+        localDataSource: SharedPreferencesDataSource()));
 
 final _registerProvider = Provider<Register>(
     (ref) => Register(repository: ref.watch(_authRepositoryProvider)));

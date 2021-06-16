@@ -1,4 +1,4 @@
-import 'package:auth/src/domain/entities/registering_user.dart';
+import 'package:auth/src/data/datasources/local/i_local_data_source.dart';
 import 'package:auth/src/data/models/registering_user_model.dart';
 
 import 'package:errors/errors.dart';
@@ -14,17 +14,22 @@ class AuthRepository implements IAuthRepository {
   /// Auth repository constructor
   AuthRepository({
     required remoteDataSource,
-  }) : _remoteDataSource = remoteDataSource;
+    required localDataSource,
+  })  : _remoteDataSource = remoteDataSource,
+        _localDataSource = localDataSource;
 
   //
 
   final IRemoteDataSource _remoteDataSource;
-
+  final ILocalDataSource _localDataSource;
   @override
   Future<Either<Failure, AuthResponse>> signIn(
       String email, String password) async {
     try {
       final authResponse = await _remoteDataSource.signin(email, password);
+      await _localDataSource.saveId(authResponse.id);
+      await _localDataSource.saveToken(authResponse.token);
+
       return Right(authResponse);
     } catch (error) {
       return Left(ServerFailure());
@@ -36,6 +41,8 @@ class AuthRepository implements IAuthRepository {
       RegisteringUserModel user) async {
     try {
       final authResponse = await _remoteDataSource.register(user);
+      await _localDataSource.saveId(authResponse.id);
+      await _localDataSource.saveToken(authResponse.token);
       return Right(authResponse);
     } catch (error) {
       return Left(ServerFailure());

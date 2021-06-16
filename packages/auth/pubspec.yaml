@@ -18,6 +18,7 @@ dependencies:
   freezed_annotation:
   meta:
   path:
+  shared_preferences: ^2.0.6
 
 dev_dependencies:
   # code generators
