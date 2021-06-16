@@ -18,4 +18,10 @@ class DioRemoteDataSource implements IRemoteDataSource {
     return AuthResponseModel.fromJson(
         {'id': 'new id', 'token': 'token de registro para ${user.name}'});
   }
+
+  @override
+  Future<bool> validateToken(String? token) async{
+    await Future.delayed(const Duration(seconds: 2));
+    return true;
+  }
 }

@@ -13,4 +13,7 @@ abstract class IRemoteDataSource {
   ///Registering user
   Future<AuthResponse> register(RegisteringUserModel user);
 
+   Future<bool> validateToken(String? token);
+
+
 }

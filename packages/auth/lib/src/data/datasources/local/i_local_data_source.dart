@@ -7,6 +7,7 @@ abstract class ILocalDataSource {
   Future<String?> getToken();
   Future<String?> saveToken(String token);
   Future<void> clearAllData();
+   Future<void> removeToken();
   Future<UserModel> saveUser(UserModel user);
   Future<UserModel> getUser();
 }

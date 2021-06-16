@@ -1,5 +1,6 @@
 import 'package:auth/src/data/datasources/local/i_local_data_source.dart';
 import 'package:auth/src/data/models/registering_user_model.dart';
+import 'package:auth/src/data/models/token_failure.dart';
 
 import 'package:errors/errors.dart';
 
@@ -44,6 +45,23 @@ class AuthRepository implements IAuthRepository {
       await _localDataSource.saveId(authResponse.id);
       await _localDataSource.saveToken(authResponse.token);
       return Right(authResponse);
+    } catch (error) {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> validateToken() async {
+    if (await _localDataSource.getToken() == null) {
+      Left(TokenFailure());
+    }
+    try {
+      final auth = await _remoteDataSource
+          .validateToken(await _localDataSource.getToken());
+      if (!auth) {
+        await _localDataSource.clearAllData();
+      }
+      return Right(auth);
     } catch (error) {
       return Left(ServerFailure());
     }

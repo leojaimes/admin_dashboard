@@ -9,3 +9,4 @@ export 'repositories/iauth_repository.dart';
 // Exportar use cases
 export 'usecases/register.dart';
 export 'usecases/sign_in.dart';
+export 'usecases/validate_token.dart';

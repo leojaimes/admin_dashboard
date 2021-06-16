@@ -60,4 +60,11 @@ class SharedPreferencesDataSource implements ILocalDataSource {
     await sharedPreferences.setString(_id, id);
     return id;
   }
+
+  @override
+  Future<void> removeToken() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.remove(_prefToken);
+    await sharedPreferences.remove(_id);
+  }
 }
