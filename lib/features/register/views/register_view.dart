@@ -1,5 +1,6 @@
 import 'package:admin_dashboard/features/register/logic/register_form_provider.dart';
 import 'package:admin_dashboard/features/register/logic/register_provider.dart';
+import 'package:admin_dashboard/features/validate_token/logic/validate_token_provider.dart';
 import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/ui/validators/validators.dart';
@@ -76,6 +77,10 @@ class RegisterView extends StatelessWidget {
                         await context
                             .read(registerNotifierProvider.notifier)
                             .registerUser(user);
+
+                        await context
+                            .read(validateTokenNotifierProvider.notifier)
+                            .validateAuthentication();
                       },
                       text: 'Crear cuenta',
                     ),

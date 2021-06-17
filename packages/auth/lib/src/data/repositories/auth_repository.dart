@@ -53,7 +53,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<Failure, bool>> validateToken() async {
     if (await _localDataSource.getToken() == null) {
-      Left(TokenFailure());
+      return const Right(false);
     }
     try {
       final auth = await _remoteDataSource

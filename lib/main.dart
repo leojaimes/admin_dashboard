@@ -1,8 +1,10 @@
+import 'package:admin_dashboard/features/auth/views/login_view.dart';
 import 'package:admin_dashboard/router/navigation_service.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
+import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/no_page_found_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,12 +27,18 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Flurorouter.router.generator,
       builder: (_, child) {
         //return AuthLayout(child: child!);
-        return Consumer(builder: (context, wacth, _) {
+        return Consumer(builder: (_, wacth, __) {
           final validateState = wacth(validateTokenNotifierProvider);
           return validateState.when(
-              isValid: (isvalid) =>   DashboardLayout(child: child!  ),
-              initial: () => SplashLayout( ),
-              loading: () => SplashLayout( ),
+              isValid: (isvalid) {
+                if (isvalid) {
+                  return DashboardLayout(child: child);
+                } else {
+                  return AuthLayout(child: child!);
+                }
+              },
+              initial: () => SplashLayout(),
+              loading: () => SplashLayout(),
               error: (error) => NoPageFoundView(
                     text: error,
                   ));

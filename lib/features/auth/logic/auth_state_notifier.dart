@@ -14,6 +14,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = const AuthState.loading();
     final result = await _signIn(email, password);
     result.fold((error) => state = AuthState.error(error.toString()),
-        (authResponse) => state = AuthState.data(authResponse: authResponse));
+        (authResponse) {
+      NavigationService.replaceTo(Flurorouter.dashboardRoute);
+      return state = AuthState.data(authResponse: authResponse);
+    });
   }
 }
