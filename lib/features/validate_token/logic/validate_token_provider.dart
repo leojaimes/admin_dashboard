@@ -8,7 +8,8 @@ part 'validate_token_state_notifier.dart';
 /// Provider to use the ValidateTokenStateNotifier
 final validateTokenNotifierProvider =
     StateNotifierProvider<ValidateTokenNotifier, ValidateTokenState>(
-  (ref) => ValidateTokenNotifier(ref.watch(_validateTokenUseCaseProvider)),
+  (ref) => ValidateTokenNotifier(ref.watch(_validateTokenUseCaseProvider))
+    ..validateAuthentication(),
 );
 
 /// Repositories Providers

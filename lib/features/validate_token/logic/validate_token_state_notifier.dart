@@ -16,6 +16,6 @@ class ValidateTokenNotifier extends StateNotifier<ValidateTokenState> {
     final result = await _validateAuth.call();
 
     result.fold((error) => state = ValidateTokenState.error(error.toString()),
-        (isValid) => ValidateTokenState.isValid(isValid));
+        (isValid) => state = ValidateTokenState.isValid(isValid));
   }
 }
