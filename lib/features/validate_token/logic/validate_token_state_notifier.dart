@@ -21,6 +21,9 @@ class ValidateTokenNotifier extends StateNotifier<ValidateTokenState> {
         (isValid) {
       _isValid = isValid;
       state = ValidateTokenState.isValid(isValid);
+      if (isValid) {
+        //NavigationService.navigateTo(Flurorouter.dashboardRoute);
+      } 
     });
   }
 }

@@ -16,11 +16,26 @@ class DashboardHandlers {
     }
   );
 
-  /*static Handler register = Handler(
+   static Handler icons = Handler(
     handlerFunc: ( context, params ) {
-      return Container(chi);
+
+      
+
+      
+        return IconsView();
+      
     }
-  );*/
+  );
+
+
+  static Handler blank = Handler(
+    handlerFunc: ( context, params ) {
+
+      
+        return BlankView();
+      
+    }
+  );
 
 
 }

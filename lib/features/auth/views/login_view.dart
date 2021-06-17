@@ -2,6 +2,7 @@ import 'package:admin_dashboard/features/auth/logic/auth_provider.dart';
 import 'package:admin_dashboard/features/auth/logic/login_form_provider.dart';
 import 'package:admin_dashboard/features/validate_token/logic/validate_token_provider.dart';
 import 'package:admin_dashboard/providers/auth_example_provider.dart';
+import 'package:admin_dashboard/router/navigation_service.dart';
 import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/ui/validators/validators.dart';
@@ -57,20 +58,22 @@ class LoginView extends StatelessWidget {
                   const SizedBox(height: 20),
                   Consumer(builder: (context, wacth, child) {
                     return CustomOutlinedButton(
-                        onPressed: wacth(_loginFormProvider).isValidForm ==
-                                false
-                            ? null
-                            : () async {
-                                await context
-                                    .read(signInNotifierProvider.notifier)
-                                    .signIn(loginFormController.email,
-                                        loginFormController.password);
+                        onPressed:
+                            wacth(_loginFormProvider).isValidForm == false
+                                ? null
+                                : () async {
+                                    await context
+                                        .read(signInNotifierProvider.notifier)
+                                        .signIn(loginFormController.email,
+                                            loginFormController.password);
 
-                                await context
-                                    .read(
-                                        validateTokenNotifierProvider.notifier)
-                                    .validateAuthentication();
-                              },
+                                    final authNot = context.read(
+                                        validateTokenNotifierProvider.notifier);
+
+                                    await authNot.validateAuthentication();
+
+                                   
+                                  },
                         text: 'Ingresar');
                   }),
 
