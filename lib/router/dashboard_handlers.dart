@@ -1,5 +1,7 @@
 import 'package:admin_dashboard/features/auth/views/login_view.dart';
+import 'package:admin_dashboard/ui/views/blank_view.dart';
 import 'package:admin_dashboard/ui/views/dashboard_view.dart';
+import 'package:admin_dashboard/ui/views/icons_view%20copy.dart';
 import 'package:fluro/fluro.dart';
 
 import 'is_auth_widget.dart';
@@ -20,9 +22,9 @@ class DashboardHandlers {
     handlerFunc: ( context, params ) {
 
       
-
+    return isAuthWidget(context!, IconsView(),  LoginView());
       
-        return IconsView();
+         
       
     }
   );
@@ -31,9 +33,8 @@ class DashboardHandlers {
   static Handler blank = Handler(
     handlerFunc: ( context, params ) {
 
-      
-        return BlankView();
-      
+       return isAuthWidget(context!, BlankView(),  LoginView());
+    
     }
   );
 

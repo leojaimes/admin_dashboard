@@ -16,3 +16,9 @@ Se realiza diseño de la pagina de login cambiand unicamente el formulario de re
 Se realiza manejo de estado con riverpod
 flutter run -d chrome
 flutter pub add shared_preferences
+
+
+## Seccion 9 
+Se agregaron los shared widgets
+Ss agrego icon_view and blank_view para la dashboard
+Manejo de estado para  cambiar la apariencia de? 
