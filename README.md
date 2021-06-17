@@ -20,5 +20,18 @@ flutter pub add shared_preferences
 
 ## Seccion 9 
 Se agregaron los shared widgets
+Menu lateral
+Resposividad para el menu lateral 
 Ss agrego icon_view and blank_view para la dashboard
 Manejo de estado para  cambiar la apariencia de? 
+Navbar
+
+Sidebar
+
+Animaciones
+
+Dashboard layout
+
+Rutas y cambio de vista
+
+Crear vista vacía para crear otras rápidamente
