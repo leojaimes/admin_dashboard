@@ -9,9 +9,9 @@ class SplashLayout extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(),
-            SizedBox( height: 20 ),
-            Text('Checking...')
+              CircularProgressIndicator(),
+              SizedBox(  height: 20 ),
+              Text('Checking...')
           ],
         ),
       ),

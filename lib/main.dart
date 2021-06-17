@@ -2,6 +2,7 @@ import 'package:admin_dashboard/router/navigation_service.dart';
 import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
+import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
 import 'package:admin_dashboard/ui/views/no_page_found_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,9 +28,9 @@ class MyApp extends StatelessWidget {
         return Consumer(builder: (context, wacth, _) {
           final validateState = wacth(validateTokenNotifierProvider);
           return validateState.when(
-              isValid: (isvalid) => DashboardLayout(child: child!),
-              initial: () => AuthLayout(child: child!),
-              loading: () => AuthLayout(child: child!),
+              isValid: (isvalid) =>   DashboardLayout(child: child!  ),
+              initial: () => SplashLayout( ),
+              loading: () => SplashLayout( ),
               error: (error) => NoPageFoundView(
                     text: error,
                   ));

@@ -8,6 +8,8 @@ abstract class ValidateTokenState with _$ValidateTokenState {
   /// Data is present state
   const factory ValidateTokenState.isValid(bool isValid) = _$Data;
 
+
+ 
   /// Initial/default state
   const factory ValidateTokenState.initial() = _$Initial;
 

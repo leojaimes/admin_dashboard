@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DashboardLayout extends StatelessWidget {
-  const DashboardLayout({Key? key, required this.child}) : super(key: key);
+  const DashboardLayout({Key? key,   this.child}) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,8 @@ class DashboardLayout extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('Dashboard', style: TextStyle(fontSize: 50)),
-            Expanded(child: child)
+            if (child != null )
+            Expanded(child: child!)
           ],
         ),
       ),
