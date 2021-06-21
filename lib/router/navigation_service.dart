@@ -6,13 +6,13 @@ class NavigationService {
   ///
   static navigateTo(String routeName) {
     print(routeName);
-    print(navigatorKey.currentState);
+    //print(navigatorKey.currentState);
     return navigatorKey.currentState!.pushNamed(routeName);
   }
 
   static replaceTo(String routeName) {
     print(routeName);
-    print(navigatorKey.currentState);
+    //print(navigatorKey.currentState);
     return navigatorKey.currentState!.pushReplacementNamed(routeName);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/router/navigation_service.dart';
+import 'package:admin_dashboard/providers/sidebar_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/router/router.dart';
@@ -6,14 +7,17 @@ import 'package:admin_dashboard/router/router.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_item.dart';
 import 'package:admin_dashboard/ui/shared/widgets/logo.dart';
 import 'package:admin_dashboard/ui/shared/widgets/text_separator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Sidebar extends StatelessWidget {
+class Sidebar extends ConsumerWidget {
   void navigateTo(String routeName) {
     NavigationService.navigateTo(routeName);
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final sideMenuProvider = watch(sideMenuProviderChangeNotifier);
+
     return Container(
       width: 200,
       height: double.infinity,
@@ -28,7 +32,8 @@ class Sidebar extends StatelessWidget {
             text: 'Dashboard',
             icon: Icons.compass_calibration_outlined,
             onPressed: () => navigateTo(Flurorouter.dashboardRoute),
-            isActive: false,
+            isActive:
+                sideMenuProvider.currentPage == Flurorouter.dashboardRoute,
           ),
           MenuItem(
               text: 'Orders',
@@ -60,7 +65,7 @@ class Sidebar extends StatelessWidget {
             text: 'Icons',
             icon: Icons.list_alt_outlined,
             onPressed: () => navigateTo(Flurorouter.iconsRoute),
-            isActive: false,
+            isActive: sideMenuProvider.currentPage == Flurorouter.iconsRoute,
           ),
           MenuItem(
               text: 'Marketing',
@@ -74,7 +79,7 @@ class Sidebar extends StatelessWidget {
             text: 'Black',
             icon: Icons.post_add_outlined,
             onPressed: () => navigateTo(Flurorouter.blankRoute),
-            isActive: false,
+            isActive: sideMenuProvider.currentPage == Flurorouter.blankRoute,
           ),
           const SizedBox(height: 50),
           const TextSeparator(text: 'Exit'),
@@ -87,8 +92,8 @@ class Sidebar extends StatelessWidget {
     );
   }
 
-  BoxDecoration buildBoxDecoration() => const  BoxDecoration(
-      gradient:   LinearGradient(colors: [
+  BoxDecoration buildBoxDecoration() => const BoxDecoration(
+      gradient: LinearGradient(colors: [
         Color(0xff092044),
         Color(0xff092042),
       ]),
