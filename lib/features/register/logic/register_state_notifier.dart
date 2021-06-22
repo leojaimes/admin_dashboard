@@ -13,7 +13,9 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
   Future<void> registerUser(RegisteringUserModel user) async {
     state = const RegisterState.loading();
     final result = await _register(user);
-    result.fold((error) => state = RegisterState.error(error.toString()),
-        (data) => state = RegisterState.data(authResponse: data));
+    result.fold((error) {
+      print(error.toString());
+      return state = RegisterState.error(error.toString());
+    }, (data) => state = RegisterState.data(authResponse: data));
   }
 }

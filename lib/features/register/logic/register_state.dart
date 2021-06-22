@@ -1,4 +1,3 @@
-
 import 'package:auth/auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,8 +7,8 @@ part 'register_state.freezed.dart';
 @freezed
 abstract class RegisterState with _$RegisterState {
   /// Data is present state
-  const factory RegisterState.data({required AuthResponse authResponse}) =
-      _$Data;
+  const factory RegisterState.data(
+      {required RegisterUserResponse authResponse}) = _$Data;
 
   /// Initial/default state
   const factory RegisterState.initial() = _$Initial;

@@ -10,7 +10,7 @@ RegisterUserResponseModel _$RegisterUserResponseModelFromJson(
     Map<String, dynamic> json) {
   return RegisterUserResponseModel(
     json['token'] as String,
-    UserModel.fromJson(json['user'] as Map<String, dynamic>),
+    UserModel.fromJson(json['usuario'] as Map<String, dynamic>),
   );
 }
 
@@ -18,5 +18,5 @@ Map<String, dynamic> _$RegisterUserResponseModelToJson(
         RegisterUserResponseModel instance) =>
     <String, dynamic>{
       'token': instance.token,
-      'user': instance.user,
+      'usuario': instance.user,
     };

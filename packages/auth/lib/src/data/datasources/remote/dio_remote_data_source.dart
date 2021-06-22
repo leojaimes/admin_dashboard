@@ -3,17 +3,21 @@ import 'package:auth/src/data/models/auth_response_model.dart';
 import 'package:auth/src/data/models/registering_user_model.dart';
 import 'package:auth/src/data/models/register_user_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:path/path.dart';
 
 ///
 class DioRemoteDataSource implements IRemoteDataSource {
   ///
-  const DioRemoteDataSource({ required this.url , required this.dio });
+  DioRemoteDataSource({required url, required dio})
+      : _url = url,
+        _dio = dio;
 
   ///
-  final String url;
+  final String _url;
+
   ///
-  final Dio dio;
-  
+  final Dio _dio;
+
   //falta url
   @override
   Future<AuthResponseModel> signin(String email, String password) async {
@@ -22,11 +26,16 @@ class DioRemoteDataSource implements IRemoteDataSource {
         {'id': '11', 'token': 'este es el token XX'});
   }
 
+  /// [user]
   @override
   Future<RegisterUserResponseModel> register(RegisteringUserModel user) async {
-    await Future.delayed(const Duration(seconds: 2));
-    return RegisterUserResponseModel.fromJson(
-        {'id': 'new id', 'token': 'token de registro para ${user.name}'});
+    print(user.email);
+    final formData = FormData.fromMap(user.toJson());
+
+    final resp = await _dio.post('$_url/usuarios', data: formData);
+    print('${resp.data['usuario']}');
+
+    return RegisterUserResponseModel.fromJson(resp.data );
   }
 
   @override

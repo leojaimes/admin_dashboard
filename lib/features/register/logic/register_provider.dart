@@ -14,7 +14,7 @@ final registerNotifierProvider =
 
 final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
     AuthRepository(
-        remoteDataSource: DioRemoteDataSource(url: '', dio: Dio()),
+        remoteDataSource: DioRemoteDataSource(url: 'http://localhost:8080/api', dio: Dio()),
         localDataSource: SharedPreferencesDataSource()));
 
 final _registerProvider = Provider<Register>(

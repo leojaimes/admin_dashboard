@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RegisterStateTearOff {
   const _$RegisterStateTearOff();
 
-  _$Data data({required AuthResponse authResponse}) {
+  _$Data data({required RegisterUserResponse authResponse}) {
     return _$Data(
       authResponse: authResponse,
     );
@@ -44,7 +44,7 @@ const $RegisterState = _$RegisterStateTearOff();
 mixin _$RegisterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthResponse authResponse) data,
+    required TResult Function(RegisterUserResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -52,7 +52,7 @@ mixin _$RegisterState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthResponse authResponse)? data,
+    TResult Function(RegisterUserResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -99,7 +99,7 @@ class _$RegisterStateCopyWithImpl<$Res>
 abstract class _$$DataCopyWith<$Res> {
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
-  $Res call({AuthResponse authResponse});
+  $Res call({RegisterUserResponse authResponse});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$DataCopyWithImpl<$Res> extends _$RegisterStateCopyWithImpl<$Res>
       authResponse: authResponse == freezed
           ? _value.authResponse
           : authResponse // ignore: cast_nullable_to_non_nullable
-              as AuthResponse,
+              as RegisterUserResponse,
     ));
   }
 }
@@ -130,7 +130,7 @@ class _$_$Data implements _$Data {
   const _$_$Data({required this.authResponse});
 
   @override
-  final AuthResponse authResponse;
+  final RegisterUserResponse authResponse;
 
   @override
   String toString() {
@@ -158,7 +158,7 @@ class _$_$Data implements _$Data {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthResponse authResponse) data,
+    required TResult Function(RegisterUserResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -169,7 +169,7 @@ class _$_$Data implements _$Data {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthResponse authResponse)? data,
+    TResult Function(RegisterUserResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -209,9 +209,9 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements RegisterState {
-  const factory _$Data({required AuthResponse authResponse}) = _$_$Data;
+  const factory _$Data({required RegisterUserResponse authResponse}) = _$_$Data;
 
-  AuthResponse get authResponse => throw _privateConstructorUsedError;
+  RegisterUserResponse get authResponse => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }
@@ -253,7 +253,7 @@ class _$_$Initial implements _$Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthResponse authResponse) data,
+    required TResult Function(RegisterUserResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -264,7 +264,7 @@ class _$_$Initial implements _$Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthResponse authResponse)? data,
+    TResult Function(RegisterUserResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -344,7 +344,7 @@ class _$_$Loading implements _$Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthResponse authResponse) data,
+    required TResult Function(RegisterUserResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -355,7 +355,7 @@ class _$_$Loading implements _$Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthResponse authResponse)? data,
+    TResult Function(RegisterUserResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
@@ -460,7 +460,7 @@ class _$_$Error implements _$Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthResponse authResponse) data,
+    required TResult Function(RegisterUserResponse authResponse) data,
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String? message) error,
@@ -471,7 +471,7 @@ class _$_$Error implements _$Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthResponse authResponse)? data,
+    TResult Function(RegisterUserResponse authResponse)? data,
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String? message)? error,
