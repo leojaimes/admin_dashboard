@@ -1,6 +1,7 @@
 // Export Entities
 
 export 'entities/auth_response.dart' show AuthResponse;
+export 'entities/register_user_response.dart' show RegisterUserResponse;
 export 'entities/registering_user.dart' show RegisteringUser;
 // Export Repositories
 export 'repositories/iauth_repository.dart';

@@ -9,14 +9,14 @@ part of 'register_user_response_model.dart';
 RegisterUserResponseModel _$RegisterUserResponseModelFromJson(
     Map<String, dynamic> json) {
   return RegisterUserResponseModel(
-    user: UserModel.fromJson(json['usuario'] as Map<String, dynamic>),
-    token: json['token'] as String,
+    json['token'] as String,
+    UserModel.fromJson(json['user'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$RegisterUserResponseModelToJson(
         RegisterUserResponseModel instance) =>
     <String, dynamic>{
-      'user': instance.user,
       'token': instance.token,
+      'user': instance.user,
     };
