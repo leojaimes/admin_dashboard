@@ -34,4 +34,18 @@ Dashboard layout
 
 Rutas y cambio de vista
 
-Crear vista vacía para crear otras rápidamente
+Crear vista vacía para crear otras rápidamente.
+
+
+
+## Seccion 10
+Se configura el backend server
+Se prueban los end points
+Se conecta a la base de datos de mongo Atlas.
+
+
+
+## Seccion 11
+Se arma el irpepository  que invoca los datasources local y remoto se instancia dio y se pasa la url
+
+
