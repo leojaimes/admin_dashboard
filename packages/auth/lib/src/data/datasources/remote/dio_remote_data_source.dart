@@ -1,9 +1,18 @@
 import 'package:auth/src/data/datasources/remote/i_remote_data_source.dart';
 import 'package:auth/src/data/models/auth_response_model.dart';
 import 'package:auth/src/data/models/registering_user_model.dart';
+import 'package:dio/dio.dart';
 
 ///
 class DioRemoteDataSource implements IRemoteDataSource {
+  ///
+  const DioRemoteDataSource({ required this.url , required this.dio });
+
+  ///
+  final String url;
+  ///
+  final Dio dio;
+  
   //falta url
   @override
   Future<AuthResponseModel> signin(String email, String password) async {
@@ -20,7 +29,7 @@ class DioRemoteDataSource implements IRemoteDataSource {
   }
 
   @override
-  Future<bool> validateToken(String? token) async{
+  Future<bool> validateToken(String? token) async {
     await Future.delayed(const Duration(seconds: 2));
     return true;
   }

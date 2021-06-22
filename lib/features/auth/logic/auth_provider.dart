@@ -1,5 +1,3 @@
-import 'package:admin_dashboard/router/navigation_service.dart';
-import 'package:admin_dashboard/router/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:auth/auth.dart';
@@ -18,7 +16,7 @@ final signInNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
 /// repositoryProvider
 final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
     AuthRepository(
-        remoteDataSource: DioRemoteDataSource(),
+        remoteDataSource: DioRemoteDataSource(url: '', dio: Dio()),
         localDataSource: SharedPreferencesDataSource()));
 
 /// Use Cases Providers

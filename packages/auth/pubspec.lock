@@ -178,6 +178,13 @@ packages:
       url: "git://github.com/uSlashVlad/data_connection_checker.git"
     source: git
     version: "0.4.0-nullsafety"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   equatable:
     dependency: transitive
     description:

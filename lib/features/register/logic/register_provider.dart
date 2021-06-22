@@ -1,5 +1,6 @@
 import 'package:auth/auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dio/dio.dart';
 
 import 'register_state.dart';
 
@@ -13,7 +14,7 @@ final registerNotifierProvider =
 
 final _authRepositoryProvider = Provider<IAuthRepository>((ref) =>
     AuthRepository(
-        remoteDataSource: DioRemoteDataSource(),
+        remoteDataSource: DioRemoteDataSource(url: '', dio: Dio()),
         localDataSource: SharedPreferencesDataSource()));
 
 final _registerProvider = Provider<Register>(

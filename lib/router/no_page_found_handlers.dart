@@ -11,5 +11,5 @@ class NoPageFoundHandlers {
         .setCurrentPageUrl('/404');
 
     return NoPageFoundView();
-  });
+  }); 
 }
